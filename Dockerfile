@@ -22,6 +22,7 @@ ADD xe.conf /etc/apache2/sites-available
 RUN a2dissite 000-default.conf
 RUN a2ensite xe.conf
 RUN a2enmod rewrite
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 RUN service apache2 restart
 
 CMD apachectl -DFOREGROUND
